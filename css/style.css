@@ -1012,8 +1012,55 @@ body::after {
     font-size: 11px;
   }
 }
+/* ULTRA COMPACT MOBILE — EDUCATION */
+@media (max-width: 480px) {
 
+  .resume-section {
+    padding: 2.5rem 1.2rem;
+  }
 
+  .education-wrapper {
+    gap: 14px;
+  }
+
+  .edu-card {
+    padding: 12px 14px;
+    border-radius: 16px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+  }
+
+  .edu-year {
+    font-size: 10px;
+    padding: 3px 10px;
+    margin-bottom: 6px;
+  }
+
+  .edu-check {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .edu-card h3 {
+    font-size: 14px;
+    margin: 2px 0;
+  }
+
+  .edu-card p {
+    font-size: 10.5px;
+  }
+}
+@media (max-width: 480px) {
+
+  .edu-card {
+    flex: 1 1 auto; 
+    width: 100%;
+    max-width: 100%;
+  }
+
+}
 
 /* EXPERIENCE */
 .experience-wrapper {
