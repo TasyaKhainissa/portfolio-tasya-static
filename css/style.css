@@ -987,6 +987,33 @@ body::after {
     transform: none;
   }
 }
+/* MOBILE FIX — EDUCATION CARDS */
+@media (max-width: 768px) {
+  .education-wrapper {
+    max-width: 100%;
+  }
+
+  .edu-card {
+    flex: 1 1 100%; 
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .edu-card {
+    padding: 14px 16px;
+  }
+
+  .edu-card h3 {
+    font-size: 15px;
+  }
+
+  .edu-card p {
+    font-size: 11px;
+  }
+}
+
+
 
 /* EXPERIENCE */
 .experience-wrapper {
