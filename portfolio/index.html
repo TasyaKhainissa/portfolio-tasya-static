@@ -285,10 +285,25 @@
 
     </div>
 
-    <!-- RIGHT -->
-    <div class="project-preview">
-      <img src="../images/project/ams.png" alt="Audit Management System">
+<!-- RIGHT -->
+<div class="project-preview">
+
+  <div class="slider">
+
+    <img src="../images/project/ams.png" class="slide active">
+    <img src="../images/project/ams2.png" class="slide">
+    <img src="../images/project/ams3.png" class="slide">
+
+    <div class="slider-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
+
+  </div>
+
+</div>
+
 
   </div>
 
@@ -610,6 +625,41 @@ function sendEmail(event) {
       btn.innerText = "Send Message";
   });
 }
+</script>
+
+//Slide AMS
+<script>
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+      dots[i].classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+  }
+
+  function nextSlide() {
+    currentIndex++;
+    if (currentIndex >= slides.length) {
+      currentIndex = 0;
+    }
+    showSlide(currentIndex);
+  }
+
+  setInterval(nextSlide, 3000);
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentIndex = index;
+      showSlide(currentIndex);
+    });
+  });
 </script>
 
 
