@@ -1509,25 +1509,46 @@ body::after {
 .project-preview img:hover {
   transform: translateY(-6px); 
 }
-/* SLIDER CONTAINER */
+/* SLIDER Container*/
 .slider {
   position: relative;
   width: 100%;
   max-width: 650px;
+  overflow: hidden;
 }
 
-/* SLIDES */
+.slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
 .slide {
   width: 100%;
-  display: none;
-  transition: opacity 0.5s ease-in-out;
+  flex-shrink: 0;
+  border-radius: 12px;
 }
 
-.slide.active {
-  display: block;
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  font-size: 22px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.3s ease;
 }
 
-/* DOTS */
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
 .slider-dots {
   text-align: center;
   margin-top: 15px;
@@ -1541,7 +1562,7 @@ body::after {
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s;
 }
 
 .dot.active {

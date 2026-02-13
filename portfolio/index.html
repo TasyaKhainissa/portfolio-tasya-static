@@ -290,10 +290,17 @@
 
   <div class="slider">
 
-    <img src="../images/project/ams.png" class="slide active">
-    <img src="../images/project/ams2.png" class="slide">
-    <img src="../images/project/ams3.png" class="slide">
+    <div class="slides">
+      <img src="../images/project/ams.png" class="slide">
+      <img src="../images/project/ams2.png" class="slide">
+      <img src="../images/project/ams3.png" class="slide">
+    </div>
 
+    <!-- Arrow Buttons -->
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+
+    <!-- Dots -->
     <div class="slider-dots">
       <span class="dot active"></span>
       <span class="dot"></span>
@@ -629,37 +636,43 @@ function sendEmail(event) {
 
 //Slide AMS
 <script>
+  const slidesContainer = document.querySelector(".slides");
   const slides = document.querySelectorAll(".slide");
   const dots = document.querySelectorAll(".dot");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
 
   let currentIndex = 0;
+  const totalSlides = slides.length;
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove("active");
-      dots[i].classList.remove("active");
-    });
+  function updateSlider() {
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentIndex].classList.add("active");
   }
 
   function nextSlide() {
-    currentIndex++;
-    if (currentIndex >= slides.length) {
-      currentIndex = 0;
-    }
-    showSlide(currentIndex);
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlider();
   }
 
-  setInterval(nextSlide, 3000);
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  }
+
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
 
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       currentIndex = index;
-      showSlide(currentIndex);
+      updateSlider();
     });
   });
+
+  setInterval(nextSlide, 4000);
 </script>
 
 
